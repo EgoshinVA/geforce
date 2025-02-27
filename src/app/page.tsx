@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useMeQuery } from '@/services/loginApi'
 import { ResultCode } from '@/types/enums'
 import { useAppDispatch } from '@/hooks/appHooks'
+import { setIsAuth } from '@/app/appSlice'
 
 export default function Home() {
   const [isInitialized, setIsInitialized] = useState<boolean>(false)
@@ -14,10 +15,10 @@ export default function Home() {
     if (!isLoading) {
       setIsInitialized(true)
       if (data?.resultCode === ResultCode.Success) {
-        //dispatch is auth true :)
+        dispatch(setIsAuth(true))
       }
     }
-  }, [data, isLoading])
+  }, [data, isLoading, dispatch])
 
   return (
     <div>
