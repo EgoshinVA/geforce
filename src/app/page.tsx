@@ -4,12 +4,18 @@ import { useMeQuery } from '@/services/loginApi'
 import { ResultCode } from '@/types/enums'
 import { useAppDispatch } from '@/hooks/appHooks'
 import { setIsAuth } from '@/app/appSlice'
+import { Modal } from '@/components/Modal/Modal'
 
 export default function Home() {
   const [isInitialized, setIsInitialized] = useState<boolean>(false)
+  const [open, setOpen] = useState<boolean>(true)
 
   const { data, isLoading } = useMeQuery()
   const dispatch = useAppDispatch()
+
+  const setClose = () => {
+    setOpen(false)
+  }
 
   useEffect(() => {
     if (!isLoading) {
@@ -23,6 +29,7 @@ export default function Home() {
   return (
     <div>
       {!isInitialized ? <p>Loading...</p> : <p>Success</p>}
+      <Modal open={open} onClose={setClose} />
     </div>
   )
 }
