@@ -1,0 +1,21 @@
+.button {
+    cursor: pointer;
+
+    padding: 2px 10px;
+    border: none;
+    border-radius: 5px;
+
+    font-weight: bold;
+    color: white;
+
+    background-color: #777676;
+}
+
+.button.active {
+    background-color: #9d9c9c;
+}
+
+.button:disabled {
+    cursor: inherit;
+    background-color: #dcdbdb;
+}
