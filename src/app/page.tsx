@@ -4,17 +4,17 @@ import { useMeQuery } from '@/services/loginApi'
 import { ResultCode } from '@/types/enums'
 import { useAppDispatch } from '@/hooks/appHooks'
 import { setIsAuth } from '@/app/appSlice'
-import { Modal } from '@/components/Modal/Modal'
+import { ErrorModal } from '@/components/ErrorModal/ErrorModal'
 
 export default function Home() {
   const [isInitialized, setIsInitialized] = useState<boolean>(false)
-  const [open, setOpen] = useState<boolean>(true)
+  const [error, setError] = useState<string | null>(null)//todo add global logic
 
   const { data, isLoading } = useMeQuery()
   const dispatch = useAppDispatch()
 
   const setClose = () => {
-    setOpen(false)
+    setError(null)
   }
 
   useEffect(() => {
@@ -25,11 +25,13 @@ export default function Home() {
       }
     }
   }, [data, isLoading, dispatch])
-
+//todo fix success line
   return (
     <div>
       {!isInitialized ? <p>Loading...</p> : <p>Success</p>}
-      <Modal open={open} onClose={setClose} />
+      {error && <ErrorModal open={!!error} onClose={setClose} errorText={error} />}
     </div>
   )
 }
+
+//todo add container
