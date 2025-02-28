@@ -8,14 +8,9 @@ import { ErrorModal } from '@/components/ErrorModal/ErrorModal'
 
 export default function Home() {
   const [isInitialized, setIsInitialized] = useState<boolean>(false)
-  const [error, setError] = useState<string | null>(null)//todo add global logic
 
   const { data, isLoading } = useMeQuery()
   const dispatch = useAppDispatch()
-
-  const setClose = () => {
-    setError(null)
-  }
 
   useEffect(() => {
     if (!isLoading) {
@@ -29,7 +24,7 @@ export default function Home() {
   return (
     <div>
       {!isInitialized ? <p>Loading...</p> : <p>Success</p>}
-      {error && <ErrorModal open={!!error} onClose={setClose} errorText={error} />}
+      <ErrorModal />
     </div>
   )
 }

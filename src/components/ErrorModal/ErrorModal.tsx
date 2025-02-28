@@ -1,14 +1,16 @@
 import s from './ErrorModal.module.css'
 import React, { useEffect } from 'react'
+import { useAppDispatch, useAppSelector } from '@/hooks/appHooks'
+import { selectAppError, setError } from '@/app/appSlice'
 
-type Props = {
-  open: boolean
-  onClose: () => void
-  errorText: string
-}
+export const ErrorModal = () => {
+  const dispatch = useAppDispatch()
+  const onClose = () => {
+    dispatch(setError(null))
+  }
 
-export const ErrorModal = ({ onClose, open, errorText }: Props) => {
-//todo add logic take error tight here
+  const error = useAppSelector(selectAppError)
+
   useEffect(() => {
     const timer = setTimeout(() => {
       onClose()
@@ -21,12 +23,12 @@ export const ErrorModal = ({ onClose, open, errorText }: Props) => {
 
   return (
     <>
-      {open && (
+      {!!error && (
         <div className={s.overlay}>
           <div className={s.content}>
             <h3 className={s.title}>Error</h3>
             <hr />
-            {errorText}
+            {error}
             <button className={s.closeIcon} onClick={onClose}>
               x
             </button>
