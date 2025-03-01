@@ -1,0 +1,10 @@
+@use '@/app/globals' as *;
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  margin: 5px 0;
+  padding: 5px;
+}

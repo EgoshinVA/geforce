@@ -1,0 +1,13 @@
+@use '@/app/globals' as *;
+
+.todolist {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 220px;
+  padding: 10px;
+  border-radius: 5px;
+
+  background-color: $dark-grey;
+}

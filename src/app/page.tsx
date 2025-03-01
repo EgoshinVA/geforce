@@ -5,6 +5,8 @@ import { ResultCode } from '@/types/enums'
 import { useAppDispatch } from '@/hooks/appHooks'
 import { setIsAuth } from '@/app/appSlice'
 import { ErrorModal } from '@/components/ErrorModal/ErrorModal'
+import { Main } from '@/components/Main/Main'
+
 
 export default function Home() {
   const [isInitialized, setIsInitialized] = useState<boolean>(false)
@@ -25,6 +27,7 @@ export default function Home() {
   return (
     <div>
       {!isInitialized ? <p>Loading...</p> : <p>Success</p>}
+      <Main/>
       <ErrorModal />
     </div>
   )

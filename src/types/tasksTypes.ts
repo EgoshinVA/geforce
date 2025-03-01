@@ -13,3 +13,9 @@ export type TaskType = {
   order: number
   addedDate: number
 }
+
+export type TaskResponse = {
+  items: TaskType[]
+  totalCount: number
+  error: string | null
+}

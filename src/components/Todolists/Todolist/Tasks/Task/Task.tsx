@@ -1,9 +1,9 @@
 import React from 'react'
 import { TaskType } from '@/types/tasksTypes'
-import Image from 'next/image'
 import s from './Task.module.scss'
 import { TaskStatus } from '@/types/enums'
 import { RemoveButton } from '@/components/buttons/RemoveButton/RemoveButton'
+import { EditableTitle } from '@/components/EditableTitle/EditableTitle'
 
 type Props = {
   task: TaskType
@@ -20,7 +20,7 @@ export const Task = ({ task }: Props) => {
   return (
     <div className={`${s.task} ${completed ? s.completed : ''}`}>
       <input checked={completed} type={'checkbox'} />
-      <p className={s.title}>{title}</p>
+      <EditableTitle title={title} onChange={() => {}} />
       <RemoveButton onClick={removeTask}/>
 
     </div>
