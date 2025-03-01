@@ -1,24 +1,24 @@
 import { Task } from '@/components/Todolists/Todolist/Tasks/Task/Task'
 import { TaskType } from '@/types/tasksTypes'
+import { TaskStatus } from '@/types/enums'
 
 export default {
   title: 'Task'
 }
 
-export const SimpleTask = () => {
-  const task: TaskType = {
-    title:'title',
-    order: 1,
-    addedDate: 1,
-    completed: false,
-    deadline: 1,
-    description: '',
-    priority: 0,
-    status: 0,
-    startDate: 0,
-    todoListId: '1',
-    id: '1'
-  }
-
-  return (<Task task={task}/>)
+const task: TaskType = {
+  title:'title',
+  order: 1,
+  addedDate: 1,
+  completed: false,
+  deadline: 1,
+  description: '',
+  priority: 0,
+  status: TaskStatus.New,
+  startDate: 0,
+  todoListId: '1',
+  id: '1'
 }
+
+export const SimpleTask = () => <Task task={task}/>
+export const CompletedTask = () => <Task task={{...task, status: TaskStatus.Completed}} />

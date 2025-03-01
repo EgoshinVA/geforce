@@ -1,0 +1,10 @@
+.removeButton {
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.removeButton:active {
+  opacity: 0.3;
+}

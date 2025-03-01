@@ -1,8 +1,10 @@
+import { TaskStatus } from '@/types/enums'
+
 export type TaskType = {
   description: string
   title: string
   completed: boolean
-  status: number
+  status: TaskStatus
   priority: number
   startDate: number
   deadline: number

@@ -1,3 +1,5 @@
+@use '@/app/globals' as *;
+
 .button {
     cursor: pointer;
 
@@ -6,16 +8,20 @@
     border-radius: 5px;
 
     font-weight: bold;
-    color: white;
+    color: $text-color;
 
-    background-color: #777676;
+    background-color: $middle-grey;
 }
 
 .button.active {
-    background-color: #9d9c9c;
+    background-color: $light-grey;
 }
 
 .button:disabled {
     cursor: inherit;
-    background-color: #dcdbdb;
+    opacity: 0.5;
+}
+
+.button:active{
+    opacity: 0.8;
 }

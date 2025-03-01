@@ -1,12 +1,23 @@
 @use '@/app/globals' as *;
 
-.task{
-    display: flex;
-    gap: 5px;
-    align-items: center;
-    background-color: $accent-color;
+.task {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 150px;
+  min-width: 100px;
+  padding: 3px 10px;
+  border-radius: 5px;
+
+  background-color: $accent-color;
 }
 
-.title{
-    margin: 0;
+.task.completed {
+  opacity: 0.8;
+}
+
+.title {
+  margin: 0;
 }
