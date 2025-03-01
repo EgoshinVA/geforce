@@ -1,5 +1,5 @@
 import { Geist_Mono, Sigmar } from 'next/font/google'
-import './globals.css'
+import './globals.scss'
 import StoreProvider from '@/app/store/StoreProvider'
 import React from 'react'
 

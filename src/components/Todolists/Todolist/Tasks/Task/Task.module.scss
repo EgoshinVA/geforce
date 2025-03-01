@@ -1,7 +1,10 @@
+@use '@/app/globals' as *;
+
 .task{
     display: flex;
     gap: 5px;
     align-items: center;
+    background-color: $accent-color;
 }
 
 .title{

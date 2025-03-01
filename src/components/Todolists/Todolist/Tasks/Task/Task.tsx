@@ -1,7 +1,7 @@
 import React from 'react'
 import { TaskType } from '@/types/tasksTypes'
 import Image from 'next/image'
-import s from './Task.module.css'
+import s from './Task.module.scss'
 
 type Props = {
   task: TaskType
