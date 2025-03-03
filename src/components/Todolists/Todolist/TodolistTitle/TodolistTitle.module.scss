@@ -1,12 +1,21 @@
 @use '@/app/globals' as *;
 
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-bottom: 5px;
+  border-radius: 5px;
+
+  background-color: $middle-grey;
+}
+
 .title {
   display: flex;
   align-items: center;
   justify-content: space-between;
 
+  width: 90%;
   padding: 4px 10px;
-  border-radius: 5px;
-
-  background-color: $middle-grey;
 }

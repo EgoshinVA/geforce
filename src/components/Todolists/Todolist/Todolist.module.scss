@@ -3,9 +3,10 @@
 .todolist {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
 
   width: 220px;
+  min-height: 220px;
   padding: 10px;
   border-radius: 5px;
 

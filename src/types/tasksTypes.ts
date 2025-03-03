@@ -19,3 +19,13 @@ export type TaskResponse = {
   totalCount: number
   error: string | null
 }
+
+export type UpdateTask = {
+  title: string
+  description: string
+  completed: boolean
+  status: number
+  priority: number
+  startDate: number
+  deadline: number
+}

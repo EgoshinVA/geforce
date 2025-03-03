@@ -1,12 +1,12 @@
 'use client'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useMeQuery } from '@/services/loginApi'
 import { ResultCode } from '@/types/enums'
 import { useAppDispatch } from '@/hooks/appHooks'
 import { setIsAuth } from '@/app/appSlice'
-import { ErrorModal } from '@/components/ErrorModal/ErrorModal'
 import { Main } from '@/components/Main/Main'
-
+import Image from 'next/image'
+import { Header } from '@/components/Header/Header'
 
 export default function Home() {
   const [isInitialized, setIsInitialized] = useState<boolean>(false)
@@ -25,10 +25,10 @@ export default function Home() {
 
 //todo fix success line
   return (
-    <div>
-      {!isInitialized ? <p>Loading...</p> : <p>Success</p>}
-      <Main/>
-      <ErrorModal />
+    <div style={{ display: 'flex' }}>
+      <Header />
+      {isInitialized ? <Main /> :
+        <Image style={{ margin: '0 auto' }} src={'Loader.svg'} alt={'loader'} width="1000" height="1000" />}
     </div>
   )
 }
