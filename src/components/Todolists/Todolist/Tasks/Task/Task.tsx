@@ -18,10 +18,11 @@ export const Task = ({ task }: Props) => {
   const [updateTask] = useUpdateTaskMutation()
 
   const updateTaskHandler = (arg: { title?: string, status?: TaskStatus }) => {
+    const { title = task.title, status = task.status } = arg
     const newTask: UpdateTask = {
       completed: task.completed,
-      status: arg.status || task.status,
-      title: arg.title || task.title,
+      status,
+      title,
       deadline: task.deadline,
       description: task.description,
       priority: task.priority,

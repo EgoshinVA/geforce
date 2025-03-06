@@ -1,3 +1,17 @@
+@use '@/app/globals' as *;
+
 .title {
   margin: 0;
+}
+
+.input {
+  width: 100%;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+
+  color: white;
+
+  background-color: $dark-grey;
+  outline: none;
 }

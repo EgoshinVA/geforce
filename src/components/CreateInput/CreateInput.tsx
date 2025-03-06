@@ -14,9 +14,15 @@ export const CreateInput = ({onCLick}: Props) => {
     setTitle('')
   }
 
+  const onEnterCLick = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if(e.key === 'Enter') {
+      onClickHandler()
+    }
+  }
+
   return (
     <div className={s.inputGroup}>
-      <input className={s.input} value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Enter Title"/>
+      <input onKeyDown={onEnterCLick} className={s.input} value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Enter Title"/>
       <Button title={'+'} onClick={onClickHandler}/>
     </div>
   )

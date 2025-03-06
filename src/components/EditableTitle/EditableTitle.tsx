@@ -23,7 +23,15 @@ export const EditableTitle = ({ title, onChange }: Props) => {
     changeTitle()
   }
 
-  return isOpen ? <input onChange={e => setNewTitle(e.currentTarget.value)}
+  const onEnterCLick = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    debugger
+    if(e.key === 'Enter') {
+      changeTitle()
+      closeTitle()
+    }
+  }
+
+  return isOpen ? <input onKeyDown={onEnterCLick} className={s.input} autoFocus onChange={e => setNewTitle(e.currentTarget.value)}
                          value={newTitle}
                          onBlur={closeTitle} /> : <p className={s.title}
                                                      onDoubleClick={openTitle}>{title}</p>

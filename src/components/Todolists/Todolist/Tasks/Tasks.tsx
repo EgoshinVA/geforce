@@ -1,27 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { DomainTodolist } from '@/types/todolistTypes'
 import { Task } from '@/components/Todolists/Todolist/Tasks/Task/Task'
 import s from './Tasks.module.scss'
-import { useGetTasksQuery } from '@/services/tasksApi'
+import { PAGE_SIZE, useGetTasksQuery } from '@/services/tasksApi'
+import { TaskStatus } from '@/types/enums'
+import ResponsivePagination from 'react-responsive-pagination';
 
 type Props = {
   todolist: DomainTodolist
 }
 
 export const Tasks = ({ todolist }: Props) => {
-  const {id} = todolist
+  const [page, setPage] = useState<number>(1)
+  const { id, filter } = todolist
 
-  //todo filter tasks
+  const { data } = useGetTasksQuery({ todolistId: id, page })
 
-  const {data} = useGetTasksQuery(id)
+  const totalCount = data?.totalCount || 0
 
-  const tasksForTodolist = data?.items
+  const pageCount = Math.ceil(totalCount / PAGE_SIZE)
 
-  console.log(tasksForTodolist)
+  const handlePageClick = (page: number) => {
+    setPage(page)
+  }
+
+  let tasksForTodolist = data?.items
+
+  if (filter === 'active')
+    tasksForTodolist = tasksForTodolist?.filter(ts => ts.status === TaskStatus.New)
+  if (filter === 'complete')
+    tasksForTodolist = tasksForTodolist?.filter(ts => ts.status === TaskStatus.Completed)
 
   return (
     <div className={s.tasks}>
       {tasksForTodolist?.length ? tasksForTodolist?.map(t => <Task key={t.id} task={t} />) : <p>Тасок нет</p>}
+      {totalCount > PAGE_SIZE &&
+        <ResponsivePagination
+          className={s.pagination}
+          onPageChange={handlePageClick}
+          current={page}
+          total={pageCount}
+        />}
     </div>
   )
 }

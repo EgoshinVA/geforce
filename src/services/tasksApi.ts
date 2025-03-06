@@ -2,11 +2,19 @@ import { baseApi } from '@/app/store/baseApi'
 import { TaskResponse, TaskType, UpdateTask } from '@/types/tasksTypes'
 import { BaseResponse } from '@/types/types'
 
+export const PAGE_SIZE = 4
+
 export const tasksApi = baseApi.injectEndpoints({
   endpoints: build => ({
-    getTasks: build.query<TaskResponse, string>({
-      query: (todolistId) => `/todo-lists/${todolistId}/tasks`,
-      providesTags: (result, error, arg) => [{ type: 'Task', id: arg }],
+    getTasks: build.query<TaskResponse, { todolistId: string, page: number }>({
+      query: ({todolistId, page}) => ({
+        url: `/todo-lists/${todolistId}/tasks`,
+        params: {
+          count: PAGE_SIZE,
+          page
+        }
+      }),
+      providesTags: (result, error, {todolistId}) => [{ type: 'Task', id: todolistId }],
     }),
     addTask: build.mutation<BaseResponse<{ data: TaskType }>, { todolistId: string, title: string }>({
       query: ({ todolistId, title }) => ({
@@ -14,14 +22,14 @@ export const tasksApi = baseApi.injectEndpoints({
         method: 'POST',
         body: { title },
       }),
-      invalidatesTags: (result, error, arg) => [{ type: 'Task', id: arg.todolistId }],
+      invalidatesTags: (result, error, {todolistId}) => [{ type: 'Task', id: todolistId }],
     }),
     removeTask: build.mutation<BaseResponse, { todolistId: string, taskId: string }>({
       query: ({ todolistId, taskId }) => ({
         url: `/todo-lists/${todolistId}/tasks/${taskId}`,
         method: 'DELETE',
       }),
-      invalidatesTags: (result, error, arg) => [{ type: 'Task', id: arg.todolistId }],
+      invalidatesTags: (result, error, {todolistId}) => [{ type: 'Task', id: todolistId }],
     }),
     updateTask: build.mutation<BaseResponse<{ data: TaskType }>, {todolistId: string, taskId: string, model: UpdateTask}>({
       query: ({taskId, model, todolistId}) => ({
@@ -29,7 +37,7 @@ export const tasksApi = baseApi.injectEndpoints({
         method: 'PUT',
         body: model
       }),
-      invalidatesTags: (result, error, arg) => [{ type: 'Task', id: arg.todolistId }],
+      invalidatesTags: (result, error, {todolistId}) => [{ type: 'Task', id: todolistId }],
     })
   }),
 })
