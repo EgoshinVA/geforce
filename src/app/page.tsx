@@ -26,7 +26,6 @@ export default function Home() {
 //todo fix success line
   return (
     <div style={{ display: 'flex' }}>
-      <Header />
       {isInitialized ? <Main /> :
         <Image style={{ margin: '0 auto' }} src={'loader.svg'} alt={'loader'} width="1000" height="1000" />}
     </div>

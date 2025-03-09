@@ -1,3 +1,4 @@
+'use client'
 import s from './Header.module.scss'
 import { useLogoutMutation } from '@/services/loginApi'
 import { ResultCode } from '@/types/enums'
