@@ -4,6 +4,7 @@ import { ResultCode } from '@/types/enums'
 import { baseApi } from '@/app/store/baseApi'
 import { useAppDispatch } from '@/hooks/appHooks'
 import Image from 'next/image'
+import { setIsAuth } from '@/app/appSlice'
 
 export const Header = () => {
   const [logout] = useLogoutMutation()
@@ -14,6 +15,7 @@ export const Header = () => {
       if (res.data?.resultCode === ResultCode.Success) {
         localStorage.removeItem('sn-token')
         dispatch(baseApi.util.invalidateTags(['Task', 'Todolist']))
+        dispatch(setIsAuth(false))
       }
     })
   }
