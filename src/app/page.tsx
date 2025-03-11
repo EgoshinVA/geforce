@@ -6,7 +6,6 @@ import { useAppDispatch } from '@/hooks/appHooks'
 import { setIsAuth } from '@/app/appSlice'
 import { Main } from '@/components/Main/Main'
 import Image from 'next/image'
-import { Header } from '@/components/Header/Header'
 
 export default function Home() {
   const [isInitialized, setIsInitialized] = useState<boolean>(false)

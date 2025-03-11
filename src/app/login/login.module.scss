@@ -1,4 +1,4 @@
-@use '@/app/globals' as *;
+@use '@/app/globals.module' as *;
 
 .form {
   display: flex;
@@ -34,4 +34,9 @@
 
 .checkBoxPlaceholder {
   display: flex;
+}
+
+.error {
+  margin: 0;
+  color: red;
 }

@@ -10,7 +10,7 @@ import { selectIsAuth, setIsAuth } from '@/app/appSlice'
 import { redirect } from 'next/navigation'
 
 export default function Login() {
-  const { register, handleSubmit, reset } = useForm<LoginArgs>({
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<LoginArgs>({
     defaultValues: {
       email: '',
       password: '',
@@ -41,15 +41,27 @@ export default function Login() {
   return (
     <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
       <h2>Authorization</h2>
-      <input className={s.input} type="email" placeholder="Email" {...register('email')} />
-      <input className={s.input} type="password" placeholder="Password" {...register('password')} />
+      <input className={s.input} type="email" placeholder="Email" {...register('email', {
+        required: 'Email is required',
+        pattern: {
+          value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+          message: 'Incorrect email address',
+        },
+      })} />
+      {errors.email && <p className={s.error}>{errors.email.message}</p>}
+      <input className={s.input} type="password" placeholder="Password" {...register('password', {
+        required: 'Password is required',
+        minLength: {
+          value: 3,
+          message: 'Password less then 3',
+        },
+      })} />
+      {errors.password && <p className={s.error}>{errors.password.message}</p>}
       <span className={s.checkBoxPlaceholder}>Remember me <input type="checkbox" {...register('rememberMe')} /></span>
-      <Button title={'Login'} onClick={() => {
-      }} />
+      <Button title={'Login'} />
     </form>
   )
 }
 
-//todo add validation
 //todo fix initialization
 //todo add moving svgs
