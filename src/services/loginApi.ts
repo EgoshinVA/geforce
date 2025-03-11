@@ -11,7 +11,7 @@ export const loginApi = baseApi.injectEndpoints({
     }>, void>({
       query: () => '/auth/me',
     }),
-    login: build.mutation<BaseResponse<{ userId: number }>, LoginArgs>({
+    login: build.mutation<BaseResponse<{ userId: number, token: string }>, LoginArgs>({
       query: (LoginArgs) => ({
         url: '/auth/login',
         method: 'POST',
