@@ -1,11 +1,11 @@
 import { Geist_Mono, Sigmar } from 'next/font/google'
-import './globals.module.scss'
+import './globals.scss'
 import StoreProvider from '@/app/store/StoreProvider'
 import React from 'react'
 import { Header } from '@/components/Header/Header'
-import s from './globals.module.scss'
 import Head from 'next/head'
 import { AppInitializer } from '@/app/AppInitializer'
+import s from './app.module.scss'
 
 const SigmarFont = Sigmar({
   variable: '--font-sigmar-mono',
