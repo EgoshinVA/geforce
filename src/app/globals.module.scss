@@ -4,12 +4,10 @@ $dark-grey: #1f1f1f;
 $middle-grey: #333;
 $light-grey: #414141;
 
-:global {
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --background: #0a0a0a;
-      --foreground: #ededed;
-    }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
   }
 }
 
