@@ -35,7 +35,7 @@ export default function Login() {
   }
 
   if (isAuth) {
-    redirect('')
+    redirect('/')
   }
 
   return (
@@ -63,5 +63,4 @@ export default function Login() {
   )
 }
 
-//todo fix initialization
 //todo add moving svgs

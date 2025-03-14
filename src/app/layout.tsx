@@ -5,6 +5,8 @@ import StoreProvider from '@/app/store/StoreProvider'
 import React from 'react'
 import { Header } from '@/components/Header/Header'
 import s from './globals.module.scss'
+import Head from 'next/head'
+import { AppInitializer } from '@/app/AppInitializer'
 
 const SigmarFont = Sigmar({
   variable: '--font-sigmar-mono',
@@ -23,14 +25,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+    <Head>
+      <title>Todolist</title>
+
+    </Head>
     <body className={`${SigmarFont.variable} ${geistMono.variable} antialiased`}>
     <StoreProvider>
-      <Header />
-      <div className={s.container}>
-        {children}
-      </div>
+      <AppInitializer>
+        <Header />
+        <div className={s.container}>
+          {children}
+        </div>
+      </AppInitializer>
     </StoreProvider>
     </body>
     </html>
   )
 }
+//todo meta tags
