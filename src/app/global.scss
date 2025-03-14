@@ -4,3 +4,9 @@
     --foreground: #ededed;
   }
 }
+
+body {
+  font-family: Sigmar, Helvetica, sans-serif;
+  color: var(--foreground);
+  background: var(--background);
+}
