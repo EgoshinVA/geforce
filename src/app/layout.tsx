@@ -1,4 +1,3 @@
-'use client'
 import { Geist_Mono, Sigmar } from 'next/font/google'
 import './globals.module.scss'
 import StoreProvider from '@/app/store/StoreProvider'
@@ -18,6 +17,12 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 })
 
+export const metadata = {
+  title: 'Todolist',
+  description: 'Todolist app',
+  keywords: ['todolist', 'Egoshin']
+}
+
 export default function RootLayout({
                                      children,
                                    }: Readonly<{
@@ -27,7 +32,6 @@ export default function RootLayout({
     <html lang="en">
     <Head>
       <title>Todolist</title>
-
     </Head>
     <body className={`${SigmarFont.variable} ${geistMono.variable} antialiased`}>
     <StoreProvider>
@@ -42,4 +46,3 @@ export default function RootLayout({
     </html>
   )
 }
-//todo meta tags
