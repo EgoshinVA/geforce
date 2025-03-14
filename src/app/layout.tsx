@@ -10,6 +10,7 @@ import s from './app.module.scss'
 const SigmarFont = Sigmar({
   variable: '--font-sigmar-mono',
   weight: '400',
+  subsets: ['latin']
 })
 
 const geistMono = Geist_Mono({
