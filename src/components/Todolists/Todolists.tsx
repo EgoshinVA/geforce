@@ -7,7 +7,7 @@ import { TodolistSkeleton } from '@/components/Todolists/TodolistSkeleton/Todoli
 export const Todolists = () => {
   const { data, isLoading } = useGetTodolistsQuery()
 
-  if ( !isLoading) {
+  if (isLoading) {
     return (
       <div className={s.todolists}>
         {new Array(3).fill(null).map((_, index) => (
