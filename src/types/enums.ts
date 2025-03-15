@@ -1,6 +1,6 @@
 export enum ResultCode {
   Success = 0,
-  Failed = 1,
+  Error = 1,
 }
 
 export enum TaskStatus {

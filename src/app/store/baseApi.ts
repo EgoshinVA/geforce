@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { handleError } from '@/services/handleError'
 
 export const baseApi = createApi({
   baseQuery: async (args, api, extraOptions) => {
@@ -10,6 +11,9 @@ export const baseApi = createApi({
       },
 
     })(args, api, extraOptions)
+
+    handleError(api, result)
+
     return result
   },
   endpoints: () => ({}),
