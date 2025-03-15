@@ -3,6 +3,11 @@ import { handleError } from '@/services/handleError'
 
 export const baseApi = createApi({
   baseQuery: async (args, api, extraOptions) => {
+    // await new Promise(resolve => {
+    //   setTimeout(() => {
+    //     resolve(true)
+    //   }, 3000)
+    // })
     const result = await fetchBaseQuery({
       baseUrl: 'https://social-network.samuraijs.com/api/1.1',
       prepareHeaders: headers => {

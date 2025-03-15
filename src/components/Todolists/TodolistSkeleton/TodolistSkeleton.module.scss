@@ -1,0 +1,51 @@
+@use '@/app/styles.module' as *;
+
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 220px;
+  min-height: 220px;
+  padding: 10px;
+  border-radius: 5px;
+
+  background-color: $middle-grey;
+
+  animation: fade-in 1s ease-in-out infinite alternate;
+}
+
+@keyframes fade-in {
+  from {opacity: 0.5;}
+  to {opacity: 1;}
+}
+
+.skeletonTitle {
+  height: 20px;
+  border-radius: 5px;
+  background-color: $light-grey;
+}
+
+.skeletonTasks{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  div {
+    height: 20px;
+    border-radius: 5px;
+    background-color: $light-grey;
+  }
+}
+
+.skeletonFilters {
+  display: flex;
+  gap: 5px;
+
+  div {
+    width: 33%;
+    height: 20px;
+    border-radius: 5px;
+    background-color: $light-grey;
+  }
+}
