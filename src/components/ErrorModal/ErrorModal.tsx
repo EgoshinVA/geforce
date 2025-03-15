@@ -1,4 +1,4 @@
-import s from './ErrorModal.module.css'
+import s from './ErrorModal.module.scss'
 import React, { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '@/hooks/appHooks'
 import { selectAppError, setError } from '@/app/appSlice'

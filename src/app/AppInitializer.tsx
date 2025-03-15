@@ -6,6 +6,7 @@ import { ResultCode } from '@/types/enums'
 import { useAppDispatch } from '@/hooks/appHooks'
 import { setIsAuth } from '@/app/appSlice'
 import Image from 'next/image'
+import { ErrorModal } from '@/components/ErrorModal/ErrorModal'
 
 export const AppInitializer = ({ children }: { children: React.ReactNode }) => {
   const [isInitialized, setIsInitialized] = useState<boolean>(false)
@@ -29,5 +30,8 @@ export const AppInitializer = ({ children }: { children: React.ReactNode }) => {
       </div>
     )
   }
-  return <>{children}</>
+  return <>
+    {children}
+    <ErrorModal />
+  </>
 }
