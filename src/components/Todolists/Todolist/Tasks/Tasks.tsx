@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react'
 import { DomainTodolist } from '@/types/todolistTypes'
 import { Task } from '@/components/Todolists/Todolist/Tasks/Task/Task'

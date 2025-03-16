@@ -13,13 +13,13 @@ export const Header = () => {
   const isAuth = useAppSelector(selectIsAuth)
 
   const logoutHandler = () => {
-    logout().then(res => {
+    logout().then((res) => {
       if (res.data?.resultCode === ResultCode.Success) {
-        localStorage.removeItem('sn-token')
-        console.log('logout')
-        dispatch(baseApi.util.invalidateTags(['Task', 'Todolist']))
         dispatch(setIsAuth(false))
+        localStorage.removeItem("sn-token")
       }
+    }).then(() => {
+      dispatch(baseApi.util.invalidateTags(['Todolist', 'Task']))
     })
   }
 
@@ -33,5 +33,3 @@ export const Header = () => {
     </header>
   )
 }
-
-//todo fix (при логауте делается запрос за тудушками и тасками, так же не очищается ртк кэш)
