@@ -1,3 +1,5 @@
+@use '@/app/styles.module' as *;
+
 .removeButton {
   cursor: pointer;
   border: none;
@@ -5,6 +7,16 @@
   outline: none;
 }
 
+.removeButton:hover{
+  animation: swaying 1s;
+}
+
 .removeButton:active {
   opacity: 0.3;
+}
+
+@keyframes swaying {
+  0% {transform: rotate(0turn);}
+  25% {transform: rotate(-0.1turn);}
+  75% {transform: rotate(0.1turn);}
 }

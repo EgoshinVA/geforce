@@ -19,5 +19,3 @@ export const baseApi = createApi({
   endpoints: () => ({}),
   tagTypes: ['Todolist', 'Task'],
 })
-
-//todo add error handler

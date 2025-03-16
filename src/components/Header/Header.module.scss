@@ -18,6 +18,10 @@
   cursor: pointer;
 }
 
+.logout:hover{
+  animation: swaying 1s;
+}
+
 .headerInfo{
   display: flex;
   align-items: center;
@@ -25,4 +29,10 @@
 
   width: 80%;
   margin: 0 auto;
+}
+
+@keyframes swaying {
+  0% {transform: rotate(0turn);}
+  25% {transform: rotate(-0.03turn);}
+  75% {transform: rotate(0.03turn);}
 }

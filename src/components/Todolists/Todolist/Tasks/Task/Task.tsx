@@ -53,4 +53,3 @@ export const Task = ({ task }: Props) => {
     </div>
   )
 }
-//todo add remove logic

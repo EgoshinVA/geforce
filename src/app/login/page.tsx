@@ -62,5 +62,3 @@ export default function Login() {
     </form>
   )
 }
-
-//todo add moving svgs

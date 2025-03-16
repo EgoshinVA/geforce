@@ -66,5 +66,3 @@ export const tasksApi = baseApi.injectEndpoints({
 })
 
 export const { useGetTasksQuery, useAddTaskMutation, useRemoveTaskMutation, useUpdateTaskMutation } = tasksApi
-
-//todo realize fast remove
