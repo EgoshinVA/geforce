@@ -3,13 +3,14 @@ import s from './Header.module.scss'
 import { useLogoutMutation } from '@/services/loginApi'
 import { ResultCode } from '@/types/enums'
 import { baseApi } from '@/app/store/baseApi'
-import { useAppDispatch } from '@/hooks/appHooks'
+import { useAppDispatch, useAppSelector } from '@/hooks/appHooks'
 import Image from 'next/image'
-import { setIsAuth } from '@/app/appSlice'
+import { selectIsAuth, setIsAuth } from '@/app/appSlice'
 
 export const Header = () => {
   const [logout] = useLogoutMutation()
   const dispatch = useAppDispatch()
+  const isAuth = useAppSelector(selectIsAuth)
 
   const logoutHandler = () => {
     logout().then(res => {
@@ -26,7 +27,8 @@ export const Header = () => {
     <header className={s.header}>
       <div className={s.headerInfo}>
         <Image src={'logo.svg'} alt={'logout'} width={40} height={40} />
-        <Image className={s.logout} src={'logout.svg'} alt={'logout'} width={30} height={30} onClick={logoutHandler} />
+        {isAuth ? <Image className={s.logout} src={'logout.svg'} alt={'logout'} width={30} height={30}
+                onClick={logoutHandler} /> : <div></div>}
       </div>
     </header>
   )

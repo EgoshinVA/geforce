@@ -24,7 +24,6 @@ export const ErrorModal = () => {
   return (
     <>
       {!!error && (
-        <div className={s.overlay}>
           <div className={s.content}>
             <h3 className={s.title}>Error</h3>
             <hr />
@@ -33,7 +32,6 @@ export const ErrorModal = () => {
               x
             </button>
           </div>
-        </div>
       )}
     </>
   )

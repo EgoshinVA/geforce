@@ -57,7 +57,7 @@ export default function Login() {
         },
       })} />
       {errors.password && <p className={s.error}>{errors.password.message}</p>}
-      <span className={s.checkBoxPlaceholder}>Remember me <input type="checkbox" {...register('rememberMe')} /></span>
+      <span className={s.checkBoxPlaceholder}>Remember me <input type="checkbox" {...register('rememberMe')}></input></span>
       <Button title={'Login'} />
     </form>
   )
