@@ -1,0 +1,62 @@
+.themeSwitcher {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.slider {
+  cursor: pointer;
+
+  position: absolute;
+  inset: 0;
+
+  border-radius: 34px;
+
+  background-color: var(--middle-grey);
+
+  transition: 0.4s;
+}
+
+.slider::before {
+  content: '';
+
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+
+  background-color: var(--accent-color);
+  background-image: url('/sun.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px 18px;
+
+  transition: 0.4s;
+}
+
+input:checked + .slider::before {
+  transform: translateX(26px);
+  background-color: var(--dark-grey);
+  background-image: url('/moon.svg');
+  background-size: 22px 22px;
+}
+
+input:checked + .slider {
+  background-color: var(--middle-grey);
+}

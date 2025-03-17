@@ -1,5 +1,3 @@
-@use '@/app/styles.module' as *;
-
 .button {
     cursor: pointer;
 
@@ -9,13 +7,13 @@
 
     font-family: Sigmar, Helvetica, sans-serif;
     font-weight: bold;
-    color: $text-color;
+    color: var(--text-color);
 
-    background-color: $middle-grey;
+    background-color: var(--middle-grey);
 }
 
 .button.active {
-    background-color: $light-grey;
+    background-color: var(--light-grey);
 }
 
 .button:disabled {

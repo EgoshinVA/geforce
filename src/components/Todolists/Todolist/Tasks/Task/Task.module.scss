@@ -1,5 +1,3 @@
-@use '@/app/styles.module' as *;
-
 .task {
   display: flex;
   gap: 5px;
@@ -10,7 +8,7 @@
   padding: 3px 10px;
   border-radius: 5px;
 
-  background-color: $accent-color;
+  background-color: var(--accent-color);
   box-shadow: 0 5px 9px black;
 }
 

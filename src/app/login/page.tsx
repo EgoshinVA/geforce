@@ -41,6 +41,9 @@ export default function Login() {
   return (
     <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
       <h2>Authorization</h2>
+      <p>Test account credentials:<br/>
+        Email: free@samuraijs.com
+        Password: free</p>
       <input className={s.input} type="email" placeholder="Email" {...register('email', {
         required: 'Email is required',
         pattern: {

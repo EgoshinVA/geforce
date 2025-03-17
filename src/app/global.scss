@@ -1,8 +1,21 @@
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Светлая тема по умолчанию */
+:root {
+  --background: #fff;
+  --foreground: #000;
+  --accent-color: #204bc1;
+  --dark-grey: #656565;
+  --middle-grey: #9d9d9d;
+  --light-grey: #d3cccc;
+}
+
+/* Темная тема */
+[data-theme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #fff;
+  --accent-color: #204bc1;
+  --dark-grey: #1f1f1f;
+  --middle-grey: #333;
+  --light-grey: #414141;
 }
 
 body {

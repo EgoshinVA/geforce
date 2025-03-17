@@ -6,6 +6,7 @@ import { baseApi } from '@/app/store/baseApi'
 import { useAppDispatch, useAppSelector } from '@/hooks/appHooks'
 import Image from 'next/image'
 import { selectIsAuth, setIsAuth } from '@/app/appSlice'
+import { ThemeSwitcher } from '@/components/ThemeSwitcher/ThemeSwitcher'
 
 export const Header = () => {
   const [logout] = useLogoutMutation()
@@ -27,8 +28,9 @@ export const Header = () => {
     <header className={s.header}>
       <div className={s.headerInfo}>
         <Image src={'logo.svg'} alt={'logout'} width={40} height={40} />
+        <ThemeSwitcher />
         {isAuth ? <Image className={s.logout} src={'logout.svg'} alt={'logout'} width={30} height={30}
-                onClick={logoutHandler} /> : <div></div>}
+                         onClick={logoutHandler} /> : <div></div>}
       </div>
     </header>
   )
