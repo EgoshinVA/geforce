@@ -1,27 +1,17 @@
 'use client'
 import s from './Header.module.scss'
 import { useLogoutMutation } from '@/services/loginApi'
-import { ResultCode } from '@/types/enums'
-import { baseApi } from '@/app/store/baseApi'
-import { useAppDispatch, useAppSelector } from '@/hooks/appHooks'
+import { useAppSelector } from '@/hooks/appHooks'
 import Image from 'next/image'
-import { selectIsAuth, setIsAuth } from '@/app/appSlice'
+import { selectIsAuth } from '@/app/appSlice'
 import { ThemeSwitcher } from '@/components/ThemeSwitcher/ThemeSwitcher'
 
 export const Header = () => {
   const [logout] = useLogoutMutation()
-  const dispatch = useAppDispatch()
   const isAuth = useAppSelector(selectIsAuth)
 
   const logoutHandler = () => {
-    logout().then((res) => {
-      if (res.data?.resultCode === ResultCode.Success) {
-        dispatch(setIsAuth(false))
-        localStorage.removeItem("sn-token")
-      }
-    }).then(() => {
-      dispatch(baseApi.util.invalidateTags(['Todolist', 'Task']))
-    })
+    logout()
   }
 
   return (

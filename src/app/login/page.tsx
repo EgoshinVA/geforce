@@ -36,7 +36,7 @@ export default function Login() {
 
   if (isAuth) {
     redirect('/')
-  }
+  }//remove
 
   return (
     <form className={s.form} onSubmit={handleSubmit(onSubmit)}>

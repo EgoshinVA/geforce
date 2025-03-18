@@ -1,6 +1,7 @@
 import { baseApi } from '@/app/store/baseApi'
 import { BaseResponse } from '@/types/types'
 import { LoginArgs } from '@/types/loginTypes'
+import { setIsAuth } from '@/app/appSlice'
 
 export const loginApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
@@ -15,15 +16,21 @@ export const loginApi = baseApi.injectEndpoints({
       query: (LoginArgs) => ({
         url: '/auth/login',
         method: 'POST',
-        body: LoginArgs
+        body: LoginArgs,
       }),
     }),
     logout: build.mutation<BaseResponse, void>({
       query: () => ({
         url: '/auth/login',
         method: 'DELETE',
-      })
-    })
+      }),
+      async onQueryStarted(args, { dispatch, queryFulfilled }) {
+        await queryFulfilled
+        dispatch(setIsAuth(false))
+        await localStorage.removeItem('sn-token')
+        dispatch(baseApi.util.invalidateTags(['Todolist', 'Task']))
+      },
+    }),
   }),
 })
 

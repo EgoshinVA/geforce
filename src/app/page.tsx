@@ -13,7 +13,7 @@ export default function Home () {
 
   if(!isAuth){
     redirect('/login')
-  }
+  }//remove
 
   return (
     <div className={s.app}>
