@@ -1,25 +1,36 @@
-/* Светлая тема */
+/* Светлая тема (теперь уютная пастельная) */
 :root {
-  --background: #fff;
-  --foreground: #000;
-  --accent-color: #204bc1;
-  --dark-grey: #656565;
-  --middle-grey: #9d9d9d;
-  --light-grey: #d3cccc;
+  --background: #f5f7ff; /* Очень светлый голубоватый */
+  --foreground: #2b2d42; /* Темно-синий почти черный */
+  --accent-color: #3a86ff; /* Яркий синий */
+  --secondary-accent: #8338ec; /* Фиолетовый для акцентов */
+  --dark-grey: #4a4e69; /* Темный серо-синий */
+  --middle-grey: #8e9aaf; /* Серо-голубой */
+  --light-grey: #e2eafc; /* Светлый голубоватый */
+  --card-bg: #fff; /* Чистый белый для карточек */
+  --border-color: #d7e3fc; /* Очень светлый голубой для границ */
+  --success-color: #06d6a0; /* Изумрудный для успешных действий */
+  --error-color: #ef476f; /* Теплый красный для ошибок */
 }
 
-/* Темная тема */
+/* Темная тема (уютная темная с акцентами) */
 [data-theme="dark"] {
-  --background: #0a0a0a;
-  --foreground: #fff;
-  --accent-color: #204bc1;
-  --dark-grey: #1f1f1f;
-  --middle-grey: #333;
-  --light-grey: #414141;
+  --background: #0f172a; /* Глубокий темно-синий */
+  --foreground: #e2e8f0; /* Мягкий белый */
+  --accent-color: #60a5fa; /* Светлый синий */
+  --secondary-accent: #a78bfa; /* Лавандовый */
+  --dark-grey: #1e293b; /* Темный серо-синий */
+  --middle-grey: #475569; /* Серо-синий */
+  --light-grey: #334155; /* Светлый серо-синий */
+  --card-bg: #1e293b; /* Темный фон карточек */
+  --border-color: #334155; /* Границы */
+  --success-color: #34d399; /* Мятный */
+  --error-color: #f87171; /* Лососевый */
 }
 
 body {
   font-family: Sigmar, Helvetica, sans-serif;
   color: var(--foreground);
   background: var(--background);
+  transition: all 0.3s ease;
 }

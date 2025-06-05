@@ -1,6 +1,6 @@
 import { FilterButtons } from '@/components/Todolists/Todolist/FilterButtons/FilterButtons'
 
-import { DomainTodolist, FilterType } from '@/types/todolistTypes'
+import { DomainTodolist, FilterType } from '@/shared/types/todolistTypes'
 
 export default {
   title: 'FilterButtons',

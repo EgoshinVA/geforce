@@ -1,4 +1,4 @@
-import { TaskStatus } from '@/types/enums'
+import { TaskStatus } from '@/shared/types/enums'
 
 export type TaskType = {
   description: string

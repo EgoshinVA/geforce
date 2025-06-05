@@ -1,7 +1,9 @@
-import { baseApi } from '@/app/store/baseApi'
-import { BaseResponse } from '@/types/types'
-import { LoginArgs } from '@/types/loginTypes'
-import { setIsAuth } from '@/app/appSlice'
+import { baseApi } from '@/shared/store/baseApi'
+import { BaseResponse } from '@/shared/types/types'
+import { LoginArgs } from '@/shared/types/loginTypes'
+import { setIsAuth } from '@/shared/store/appSlice'
+import { ResultCode } from '@/shared/types/enums'
+import { deleteCookie } from '@/shared/utils/cookieUtils'
 
 export const loginApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
@@ -25,10 +27,12 @@ export const loginApi = baseApi.injectEndpoints({
         method: 'DELETE',
       }),
       async onQueryStarted(args, { dispatch, queryFulfilled }) {
-        await queryFulfilled
-        dispatch(setIsAuth(false))
-        await localStorage.removeItem('sn-token')
-        dispatch(baseApi.util.invalidateTags(['Todolist', 'Task']))
+        const response = await queryFulfilled
+        if (response.data.resultCode === ResultCode.Success) {
+          dispatch(setIsAuth(false))
+          await deleteCookie('accessToken')
+          dispatch(baseApi.util.invalidateTags(['Todolist', 'Task']))
+        }
       },
     }),
   }),

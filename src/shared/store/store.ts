@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { baseApi } from '@/app/store/baseApi'
-import { appSlice } from '@/app/appSlice'
+import { baseApi } from '@/shared/store/baseApi'
+import { appSlice } from '@/shared/store/appSlice'
 
 export const makeStore = () => configureStore({
   reducer: {

@@ -1,7 +1,7 @@
 import s from './ErrorModal.module.scss'
 import React, { useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '@/hooks/appHooks'
-import { selectAppError, setError } from '@/app/appSlice'
+import { useAppDispatch, useAppSelector } from '@/shared/hooks/appHooks'
+import { selectAppError, setError } from '@/shared/store/appSlice'
 
 export const ErrorModal = () => {
   const dispatch = useAppDispatch()

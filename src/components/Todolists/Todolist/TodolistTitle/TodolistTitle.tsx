@@ -1,11 +1,11 @@
 import React from 'react'
-import { DomainTodolist } from '@/types/todolistTypes'
+import { DomainTodolist } from '@/shared/types/todolistTypes'
 import { RemoveButton } from '@/components/buttons/RemoveButton/RemoveButton'
 import s from './TodolistTitle.module.scss'
-import { useRemoveTodolistMutation, useUpdateTodolistTitleMutation } from '@/services/todolistsApi'
+import { useRemoveTodolistMutation, useUpdateTodolistTitleMutation } from '@/shared/services/todolistsApi'
 import { EditableTitle } from '@/components/EditableTitle/EditableTitle'
 import { CreateInput } from '@/components/CreateInput/CreateInput'
-import { useAddTaskMutation } from '@/services/tasksApi'
+import { useAddTaskMutation } from '@/shared/services/tasksApi'
 
 type Props = {
   todolist: DomainTodolist
@@ -36,7 +36,7 @@ export const TodolistTitle = ({ todolist }: Props) => {
         <EditableTitle title={title} onChange={updateTodolistHandler} />
         <RemoveButton onClick={removeTodolistHandler} />
       </div>
-      <CreateInput onCLick={createTaskHandler} />
+      <CreateInput onCLick={createTaskHandler} placeholder={'Add new task'} />
     </div>
   )
 }

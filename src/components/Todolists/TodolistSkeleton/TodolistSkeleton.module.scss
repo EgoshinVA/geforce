@@ -1,49 +1,45 @@
 .skeleton {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 12px;
 
-  width: 220px;
-  min-height: 220px;
-  padding: 10px;
-  border-radius: 5px;
+  height: 250px;
+  padding: 16px;
+  border-radius: 8px;
 
-  background-color: var(--middle-grey);
-
-  animation: fade-in 1s ease-in-out infinite alternate;
+  background: var(--light-grey);
 }
 
-@keyframes fade-in {
-  from {opacity: 0.5;}
-  to {opacity: 1;}
+.header {
+  height: 30px;
+  border-radius: 4px;
+  background: var(--skeleton-color);
+  animation: pulse 1.5s infinite ease-in-out;
 }
 
-.skeletonTitle {
+.task {
   height: 20px;
-  border-radius: 5px;
-  background-color: var(--light-grey);
+  border-radius: 4px;
+  background: var(--skeleton-color);
+  animation: pulse 1.5s infinite ease-in-out;
 }
 
-.skeletonTasks{
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+.footer {
+  height: 40px;
+  margin-top: auto;
+  border-radius: 4px;
 
-  div {
-    height: 20px;
-    border-radius: 5px;
-    background-color: var(--light-grey);
+  background: var(--skeleton-color);
+
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
   }
-}
 
-.skeletonFilters {
-  display: flex;
-  gap: 5px;
-
-  div {
-    width: 33%;
-    height: 20px;
-    border-radius: 5px;
-    background-color: var(--light-grey);
+  50% {
+    opacity: 0.3;
   }
 }

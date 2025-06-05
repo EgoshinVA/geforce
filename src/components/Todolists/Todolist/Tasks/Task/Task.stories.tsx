@@ -1,6 +1,6 @@
 import { Task } from '@/components/Todolists/Todolist/Tasks/Task/Task'
-import { TaskType } from '@/types/tasksTypes'
-import { TaskStatus } from '@/types/enums'
+import { TaskType } from '@/shared/types/tasksTypes'
+import { TaskStatus } from '@/shared/types/enums'
 
 export default {
   title: 'Task'

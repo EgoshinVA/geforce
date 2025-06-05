@@ -5,12 +5,13 @@ type Props = {
   title: string
   disabled?: boolean
   active?: boolean
+  type?: 'button' | 'submit' | 'reset' | undefined
   onClick?: () => void
 }
 
-export const Button = ({ title, disabled, active, onClick }: Props) => {
+export const Button = ({ title, disabled, active, type, onClick }: Props) => {
   return (
-    <button className={`${s.button} ${active ? s.active : ''}`} onClick={onClick} disabled={disabled}>
+    <button className={`${s.button} ${active ? s.active : ''}`} onClick={onClick} disabled={disabled} type={type}>
       {title}
     </button>
   )

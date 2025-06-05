@@ -1,10 +1,10 @@
 'use client'
 import React, { useState } from 'react'
-import { DomainTodolist } from '@/types/todolistTypes'
+import { DomainTodolist } from '@/shared/types/todolistTypes'
 import { Task } from '@/components/Todolists/Todolist/Tasks/Task/Task'
 import s from './Tasks.module.scss'
-import { PAGE_SIZE, useGetTasksQuery } from '@/services/tasksApi'
-import { TaskStatus } from '@/types/enums'
+import { PAGE_SIZE, useGetTasksQuery } from '@/shared/services/tasksApi'
+import { TaskStatus } from '@/shared/types/enums'
 import ResponsivePagination from 'react-responsive-pagination';
 import { TaskSkeleton } from '@/components/Todolists/Todolist/Tasks/TaskSkeleton/TaskSkeleton'
 

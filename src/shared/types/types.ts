@@ -1,4 +1,4 @@
-import { ResultCode } from '@/types/enums'
+import { ResultCode } from '@/shared/types/enums'
 
 export type BaseResponse<T = undefined> = {
   resultCode: ResultCode

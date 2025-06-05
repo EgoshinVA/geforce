@@ -1,5 +1,5 @@
 import { Tasks } from '@/components/Todolists/Todolist/Tasks/Tasks'
-import { DomainTodolist } from '@/types/todolistTypes'
+import { DomainTodolist } from '@/shared/types/todolistTypes'
 
 export default {
   title: 'Tasks',

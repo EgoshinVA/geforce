@@ -4,8 +4,8 @@ import {
   FetchBaseQueryMeta,
   QueryReturnValue,
 } from '@reduxjs/toolkit/query/react'
-import { setError } from '@/app/appSlice'
-import { ResultCode } from '@/types/enums'
+import { setError } from '@/shared/store/appSlice'
+import { ResultCode } from '@/shared/types/enums'
 
 export const handleError = (
   api: BaseQueryApi,

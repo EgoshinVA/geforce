@@ -1,9 +1,9 @@
 import React from 'react'
 import { Button } from '@/components/buttons/Button/Button'
-import { DomainTodolist, FilterType } from '@/types/todolistTypes'
+import { DomainTodolist, FilterType } from '@/shared/types/todolistTypes'
 import s from './FilterButtons.module.scss'
-import { useAppDispatch } from '@/hooks/appHooks'
-import { todolistsApi } from '@/services/todolistsApi'
+import { useAppDispatch } from '@/shared/hooks/appHooks'
+import { todolistsApi } from '@/shared/services/todolistsApi'
 
 type Props = {
   todolist: DomainTodolist

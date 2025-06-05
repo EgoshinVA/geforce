@@ -1,6 +1,6 @@
-import { baseApi } from '@/app/store/baseApi'
-import { TaskResponse, TaskType, UpdateTask } from '@/types/tasksTypes'
-import { BaseResponse } from '@/types/types'
+import { baseApi } from '@/shared/store/baseApi'
+import { TaskResponse, TaskType, UpdateTask } from '@/shared/types/tasksTypes'
+import { BaseResponse } from '@/shared/types/types'
 
 export const PAGE_SIZE = 4
 

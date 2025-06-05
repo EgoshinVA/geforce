@@ -1,5 +1,5 @@
 import React from 'react'
-import { DomainTodolist } from '@/types/todolistTypes'
+import { DomainTodolist } from '@/shared/types/todolistTypes'
 import { TodolistTitle } from '@/components/Todolists/Todolist/TodolistTitle/TodolistTitle'
 import { FilterButtons } from '@/components/Todolists/Todolist/FilterButtons/FilterButtons'
 import s from './Todolist.module.scss'

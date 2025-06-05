@@ -1,10 +1,10 @@
 import React, { ChangeEvent } from 'react'
-import { TaskType, UpdateTask } from '@/types/tasksTypes'
+import { TaskType, UpdateTask } from '@/shared/types/tasksTypes'
 import s from './Task.module.scss'
-import { TaskStatus } from '@/types/enums'
+import { TaskStatus } from '@/shared/types/enums'
 import { RemoveButton } from '@/components/buttons/RemoveButton/RemoveButton'
 import { EditableTitle } from '@/components/EditableTitle/EditableTitle'
-import { useRemoveTaskMutation, useUpdateTaskMutation } from '@/services/tasksApi'
+import { useRemoveTaskMutation, useUpdateTaskMutation } from '@/shared/services/tasksApi'
 
 type Props = {
   task: TaskType
